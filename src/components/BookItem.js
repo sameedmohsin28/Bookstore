@@ -1,13 +1,23 @@
-const BookItem = ({propOfBook}) => {
-  return (
-    <li>
-      <div>{propOfBook.bookName}</div>
-      <div>
-        <button>Edit</button>
-        <button>Remove</button>
-      </div>
-    </li>
-  )
-}
+import PropTypes from 'prop-types';
+
+const BookItem = ({ propOfBook }) => (
+  <li>
+    <div>
+      {propOfBook.bookName}
+      {' '}
+      by
+      {' '}
+      {propOfBook.author}
+    </div>
+    <div>
+      <button type="submit">Edit</button>
+      <button type="submit">Remove</button>
+    </div>
+  </li>
+);
+
+BookItem.propTypes = {
+  propOfBook: PropTypes.string.isRequired,
+};
 
 export default BookItem;
