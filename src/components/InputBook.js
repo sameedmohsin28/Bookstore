@@ -8,5 +8,4 @@ const InputBook = () => (
     </form>
   </>
 );
-
 export default InputBook;
