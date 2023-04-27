@@ -1,7 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialBooks = {
-  booksArray: [],
+  booksArray: [
+    {
+      id: 1,
+      bookName: 'The Sealed Nectar',
+      author: 'Safiur Rahman Mubarakpuri',
+      category: 'Biography',
+    },
+    {
+      id: 2,
+      bookName: 'World Order',
+      author: 'Henry Kissinger',
+      category: 'World Politics',
+    },
+    {
+      id: 3,
+      bookName: 'The Lean Startup',
+      author: 'Eric Ries',
+      category: 'Business',
+    },
+  ],
 };
 
 const booksSlice = createSlice(
@@ -12,14 +31,15 @@ const booksSlice = createSlice(
       addBook: (state, action) => (
         {
           ...state,
-          booksArray: [state.booksArray, action.payload],
+          booksArray: [...state.booksArray, action.payload],
         }
       ),
 
       removeBook: (state, action) => (
         {
           ...state,
-          booksArray: [state.booksArray.filter((bookToRemove) => bookToRemove !== action.payload)],
+          // eslint-disable-next-line max-len
+          booksArray: state.booksArray.filter((bookToRemove) => bookToRemove.id !== action.payload),
         }
       ),
     },
