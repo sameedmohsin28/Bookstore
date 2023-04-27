@@ -5,7 +5,7 @@ import InputBook from './InputBook';
 
 const BookPage = () => {
   const books = useSelector((store) => (store));
-
+  // console.log(books);
   return (
     <div className={styles.bookPage}>
       <BookList booksProp={books.booksReducer.booksArray} />

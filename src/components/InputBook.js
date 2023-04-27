@@ -8,10 +8,16 @@ const InputBook = () => {
 
   const dispatch = useDispatch();
 
+  const handleNameChange = (e) => {
+    setInputBookName(e.target.value);
+  };
+
+  const handleAuthorChange = (e) => {
+    setInputBookAuthor(e.target.value);
+  };
+
   const handleBookSubmit = (e) => {
     e.preventDefault();
-    setInputBookName(e.target.previousElementSibling.previousElementSibling.value);
-    setInputBookAuthor(e.target.previousElementSibling.value);
     if (inputBookName === '' || inputBookAuthor === '') { return; }
     dispatch(addBook(
       {
@@ -21,14 +27,18 @@ const InputBook = () => {
         category: 'NA',
       },
     ));
+    e.target.previousElementSibling.previousElementSibling.value = '';
+    e.target.previousElementSibling.value = '';
+    setInputBookName('');
+    setInputBookAuthor('');
   };
 
   return (
     <>
       <h3>ADD NEW BOOK</h3>
       <form>
-        <input type="text" placeholder="Book Title" required />
-        <input type="text" placeholder="Author" required />
+        <input type="text" placeholder="Book Title" onChange={handleNameChange} required />
+        <input type="text" placeholder="Author" onChange={handleAuthorChange} required />
         <button type="submit" onClick={handleBookSubmit}>ADD BOOK</button>
       </form>
     </>
