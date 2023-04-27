@@ -1,13 +1,17 @@
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { addBook } from '../redux/books/booksSlice';
 
 const InputBook = () => {
+  const [inputBookName, setInputBookName] = useState('');
+  const [inputBookAuthor, setInputBookAuthor] = useState('');
+
   const dispatch = useDispatch();
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
-    const inputBookName = e.target.previousElementSibling.previousElementSibling.value;
-    const inputBookAuthor = e.target.previousElementSibling.value;
+    setInputBookName(e.target.previousElementSibling.previousElementSibling.value);
+    setInputBookAuthor(e.target.previousElementSibling.value);
     if (inputBookName === '' || inputBookAuthor === '') { return; }
     dispatch(addBook(
       {
