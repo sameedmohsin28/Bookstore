@@ -1,7 +1,5 @@
 <a name="readme-top"></a>
 
-<h3><b>Bookstore</b></h3>
-
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -13,7 +11,6 @@
   - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
-  - [Run tests](#run-tests)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -109,7 +106,7 @@ You can deploy this project using GitHub Pages.
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/bookstore/issues).
+Feel free to check the [issues page](https://github.com/sameedmohsin28/bookstore/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -135,6 +132,6 @@ I would like to thank Microverse for teaching me react through this project.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/sameedmohsin28/bookstore/blob/setup/LICENSE.md) licensed.
+This project is [MIT](https://github.com/sameedmohsin28/bookstore/blob/dev/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
