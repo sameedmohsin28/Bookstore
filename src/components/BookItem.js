@@ -4,7 +4,6 @@ import { removeBook } from '../redux/books/booksSlice';
 
 const BookItem = ({ propOfBook }) => {
   const dispatch = useDispatch();
-  // console.log(propOfBook);
   return (
     <li>
       <div>

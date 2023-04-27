@@ -1,19 +1,20 @@
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import styles from './BookList.module.css';
 import BookItem from './BookItem';
 
-const BookList = ({ booksProp }) => (
-  <>
-    <ul className={styles.listOfBook}>
-      {booksProp.map((book) => (
-        <BookItem key={book.id} propOfBook={book} />
-      ))}
-    </ul>
-  </>
-);
+const BookList = () => {
+  const booksReducer = useSelector((store) => (store));
+  const booksFromStore = booksReducer.booksReducer.booksArray;
 
-BookList.propTypes = {
-  booksProp: PropTypes.string.isRequired,
+  return (
+    <>
+      <ul className={styles.listOfBook}>
+        {booksFromStore.map((book) => (
+          <BookItem key={book.id} propOfBook={book} />
+        ))}
+      </ul>
+    </>
+  );
 };
 
 export default BookList;
