@@ -10,7 +10,7 @@
 .form {
   display: grid;
   grid-template-columns: 55% 20% 1fr;
-  gap: 50px
+  gap: 50px;
 }
 
 .input {

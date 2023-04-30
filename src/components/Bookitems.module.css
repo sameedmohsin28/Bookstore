@@ -26,13 +26,13 @@
 
 .author {
   font-size: 15px;
-  color: #189AD3;
+  color: #189ad3;
 }
 
 .button {
   border: none;
   background-color: inherit;
-  color: #189AD3;
+  color: #189ad3;
   padding: 0 10px;
   border-right: 1px solid black;
 }
@@ -107,9 +107,9 @@
 }
 
 .chpHead {
- font-size: 13px;
- color: rgb(78, 78, 78);
- font-weight: 600;
+  font-size: 13px;
+  color: rgb(78, 78, 78);
+  font-weight: 600;
 }
 
 .chpNum {
