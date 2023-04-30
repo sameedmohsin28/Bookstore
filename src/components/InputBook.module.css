@@ -1,0 +1,27 @@
+.inputBook {
+  display: flex;
+  flex-direction: column;
+}
+
+.h3 {
+  color: gray;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 55% 20% 1fr;
+  gap: 50px
+}
+
+.input {
+  height: 35px;
+  border: 1px solid lightblue;
+  padding-left: 20px;
+}
+
+.addBook {
+  height: 35px;
+  background-color: #0290ff;
+  border: 1px solid #c9e3f7;
+  color: white;
+}

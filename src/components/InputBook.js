@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addBookToApi } from '../redux/api';
+import styles from './InputBook.module.css';
 
 const InputBook = () => {
   const [inputBookName, setInputBookName] = useState('');
@@ -21,7 +22,7 @@ const InputBook = () => {
     const id = Date.now();
     const title = inputBookName;
     const author = inputBookAuthor;
-    const category = 'NA';
+    const category = 'No Category';
 
     if (inputBookName === '' || inputBookAuthor === '') { return; }
     dispatch(addBookToApi({
@@ -32,14 +33,14 @@ const InputBook = () => {
   };
 
   return (
-    <>
-      <h3>ADD NEW BOOK</h3>
-      <form>
-        <input type="text" placeholder="Book Title" value={inputBookName} onChange={handleNameChange} required />
-        <input type="text" placeholder="Author" value={inputBookAuthor} onChange={handleAuthorChange} required />
-        <button type="submit" onClick={handleBookSubmit}>ADD BOOK</button>
+    <div className={styles.inputBook}>
+      <h3 className={styles.h3}>ADD NEW BOOK</h3>
+      <form className={styles.form}>
+        <input type="text" placeholder="Book Title" value={inputBookName} onChange={handleNameChange} required className={styles.input} />
+        <input type="text" placeholder="Author" value={inputBookAuthor} onChange={handleAuthorChange} required className={styles.input} />
+        <button type="submit" onClick={handleBookSubmit} className={styles.addBook}>ADD BOOK</button>
       </form>
-    </>
+    </div>
   );
 };
 

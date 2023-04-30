@@ -5,7 +5,7 @@ import InputBook from './InputBook';
 const BookPage = () => (
   <div className={styles.bookPage}>
     <BookList />
-    <hr />
+    <hr className={styles.hr} />
     <InputBook />
   </div>
 );

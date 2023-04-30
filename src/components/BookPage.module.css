@@ -1,3 +1,12 @@
 .bookPage {
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px 60px;
+  background-color: rgb(238, 253, 253);
+}
+
+.hr {
+  margin-left: 0;
+  margin-right: 0;
 }
