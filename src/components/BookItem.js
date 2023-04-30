@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { removeBookFromApi } from '../redux/api';
 
 const BookItem = ({ propOfBook }) => {
   const dispatch = useDispatch();
+
   return (
     <li>
       <div>
-        {propOfBook.bookName}
+        {propOfBook.title}
         {' '}
         by
         {' '}
@@ -15,7 +16,7 @@ const BookItem = ({ propOfBook }) => {
       </div>
       <div>
         <button type="submit">Edit</button>
-        <button type="submit" onClick={() => dispatch(removeBook(propOfBook.id))}>Remove</button>
+        <button type="submit" onClick={() => dispatch(removeBookFromApi(propOfBook.id))}>Remove</button>
       </div>
     </li>
   );

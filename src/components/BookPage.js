@@ -1,4 +1,3 @@
-// import { useSelector } from 'react-redux';
 import styles from './BookPage.module.css';
 import BookList from './BookList';
 import InputBook from './InputBook';

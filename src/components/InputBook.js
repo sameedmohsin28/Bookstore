@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { addBook } from '../redux/books/booksSlice';
+import { addBookToApi } from '../redux/api';
 
 const InputBook = () => {
   const [inputBookName, setInputBookName] = useState('');
@@ -18,17 +18,15 @@ const InputBook = () => {
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
+    const id = Date.now();
+    const title = inputBookName;
+    const author = inputBookAuthor;
+    const category = 'NA';
+
     if (inputBookName === '' || inputBookAuthor === '') { return; }
-    dispatch(addBook(
-      {
-        id: Date.now(),
-        bookName: inputBookName,
-        author: inputBookAuthor,
-        category: 'NA',
-      },
-    ));
-    e.target.previousElementSibling.previousElementSibling.value = '';
-    e.target.previousElementSibling.value = '';
+    dispatch(addBookToApi({
+      title, author, category, item_id: id,
+    }));
     setInputBookName('');
     setInputBookAuthor('');
   };
@@ -37,8 +35,8 @@ const InputBook = () => {
     <>
       <h3>ADD NEW BOOK</h3>
       <form>
-        <input type="text" placeholder="Book Title" onChange={handleNameChange} required />
-        <input type="text" placeholder="Author" onChange={handleAuthorChange} required />
+        <input type="text" placeholder="Book Title" value={inputBookName} onChange={handleNameChange} required />
+        <input type="text" placeholder="Author" value={inputBookAuthor} onChange={handleAuthorChange} required />
         <button type="submit" onClick={handleBookSubmit}>ADD BOOK</button>
       </form>
     </>
