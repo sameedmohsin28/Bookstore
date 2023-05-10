@@ -7,8 +7,8 @@ const Header = () => (
     </a>
     <div className={styles.superNav}>
       <nav className={styles.nav}>
-        <a href="/">Books</a>
-        <a href="/categories">Categories</a>
+        <a href="/" className={styles.navLinks}>BOOKS</a>
+        <a href="/categories" className={styles.navLinks}>CATEGORIES</a>
       </nav>
       <div>
         Login

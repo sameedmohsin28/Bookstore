@@ -1,30 +1,39 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addBookToApi, displayBooksFromApi, removeBookFromApi } from '../api';
 
 const initialBooks = {
   booksArray: [],
+  isLoading: false,
+  error: undefined,
 };
 
 const booksSlice = createSlice(
   {
     name: 'book',
     initialState: initialBooks,
-    reducers: {
-      addBook: (state, action) => (
-        {
+    extraReducers(builder) {
+      builder
+        .addCase(displayBooksFromApi.pending, (state) => ({
           ...state,
-          booksArray: [state.booksArray, action.payload],
-        }
-      ),
+          isLoading: true,
+        }))
+        .addCase(displayBooksFromApi.fulfilled, (state, action) => ({
+          ...state,
+          isLoading: false,
+          booksArray: action.payload,
+        }))
 
-      removeBook: (state, action) => (
-        {
+        .addCase(removeBookFromApi.fulfilled, (state, action) => ({
+          booksArray: state.booksArray.filter((bookToRemove) => bookToRemove.id !== action.payload),
+        }))
+
+        .addCase(addBookToApi.fulfilled, (state, action) => ({
           ...state,
-          booksArray: [state.booksArray.filter((bookToRemove) => bookToRemove !== action.payload)],
-        }
-      ),
+          booksArray: [...state.booksArray, action.payload],
+        }));
     },
   },
 );
 
-export const { addBook, removeBook } = booksSlice.actions;
+export const { extraReducers } = booksSlice.actions;
 export default booksSlice;
